@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data products (rebuilt by scripts/prepare_data.sh); small manifests stay tracked.
+/data/processed/*
+!/data/processed/.gitkeep
+/data/benchmarks/*
+!/data/benchmarks/.gitkeep
+
+# Run outputs live under $DUALOPSD_SCRATCH (configs/user.env, default outputs/).
+/outputs/
+logs/
+slurm-*.out

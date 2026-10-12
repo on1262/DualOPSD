@@ -1,0 +1,11 @@
+# Compute-matched OPSD: continue an OPSD run to 320 steps
+#   train ... --config configs/distill/opsd_matched.yaml --resume <opsd run>/checkpoint-100
+# The evaluated checkpoint is the one whose PFLOPs are closest to DualOPSD (analysis.select).
+teacher:
+  objective: frozen
+rollout:
+  max_num_seqs: 32
+student:
+  micro_batch_size: 2
+schedule:
+  max_steps: 320

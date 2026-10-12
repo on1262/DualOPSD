@@ -1,0 +1,42 @@
+# Shared distillation setup of every paper run (OPSD, DualOPSD and ablations).
+# Merge order: base.yaml -> configs/models/<model>.yaml -> configs/distill/<method>.yaml
+seed: 42
+model:
+  dtype: bfloat16
+  gradient_checkpointing: true
+lora:
+  r: 64
+  alpha: 128
+  dropout: 0.0
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+data:
+  train_file: ${DATA_DIR:-data/processed}/train_openthoughts_30k.jsonl
+  batch_size: 32            # one student rollout per problem; problems read in file order
+rollout:
+  backend: vllm
+  max_new_tokens: 1024      # student rollout cap; the teacher prompt gets max_model_len - max_new_tokens
+  temperature: 1.0
+  top_p: 0.95
+  top_k: 20
+  max_model_len: 16384
+  gpu_memory_utilization: 0.5
+  max_num_seqs: 32
+  sleep_level: 1
+optim:                      # AdamW for both adapters, constant LR after warmup
+  learning_rate: 5.0e-6
+  warmup_steps: 10
+  weight_decay: 0.0
+  max_grad_norm: 0.1
+  loss_group_size: 4
+  token_segment_size: 1024
+student:
+  kl_clip: 1.0e-6           # per-vocabulary upper clip of the OPSD loss (model overlay)
+  micro_batch_size: 2
+teacher:
+  objective: residual
+  clip: none
+  micro_batch_size: 2
+schedule:
+  max_steps: 100
+  save_steps: 5             # adapters kept at every save
+  optimizer_save_steps: 25  # optimizer/RNG state, latest only

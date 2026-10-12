@@ -1,0 +1,4 @@
+# DualOPSD w/o residual: teacher minimizes KL(sg[p_S] || p_T), unclipped.
+teacher:
+  objective: direct
+  clip: none

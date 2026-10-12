@@ -1,0 +1,6 @@
+# Teacher clipping ablation: the DualOPSD teacher objective KL(sg[q] || p_T) with a
+# per-vocabulary low clip (threshold = student.kl_clip); beta from the model overlay.
+# The unclipped arm is configs/distill/dualopsd.yaml.
+teacher:
+  objective: residual
+  clip: low

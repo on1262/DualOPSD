@@ -1,0 +1,10 @@
+model:
+  name: ${MODEL_QWEN3_8B:-Qwen/Qwen3-8B}
+rollout:
+  max_num_seqs: 64
+student:
+  kl_clip: 1.0e-7
+  micro_batch_size: 1
+teacher:
+  residual_beta: 0.5        # selected on the held-out 500-problem set
+  micro_batch_size: 1

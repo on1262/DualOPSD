@@ -1,0 +1,41 @@
+{
+  "files": {
+    "aime24.jsonl": {
+      "file": "data/train-00000-of-00001.parquet",
+      "revision": "2fe88a2f1091d5048c0f36abc874fb997b3dd99a",
+      "rows": 30,
+      "sha256": "77909a38a34db21b254cade51c6833aeb5e65e340b0e88dead5312d6dd7cf9b2",
+      "source": "HuggingFaceH4/aime_2024"
+    },
+    "aime25.jsonl": {
+      "file": "data/train-00000-of-00001.parquet",
+      "revision": "87387eacfd8461d7b3bf33319653eaa6d3e3eba2",
+      "rows": 30,
+      "sha256": "eed34d71e02579432bc00107448dca2e8f05bd49a29d60c877a3a5a629082ae2",
+      "source": "MathArena/aime_2025"
+    },
+    "heldout_500.jsonl": {
+      "rows": 500,
+      "seed": 42,
+      "selection": "sorted random sample without replacement from the final tail_size rows",
+      "sha256": "92d43aee6cfe96958be47d8189ff2280c4f3e3d2503b1b2d20d77c25c2ad2eed",
+      "source": "train_openthoughts_30k.jsonl",
+      "tail_size": 20000,
+      "tail_start_index": 9434
+    },
+    "hmmt25.jsonl": {
+      "file": "hmmt_25.jsonl",
+      "revision": "0b2a3e6eba63082872a0daa6d1173a5067536c8f",
+      "rows": 30,
+      "sha256": "31ea7068749995e38bc199915e2f387a287f24b5626a99fb71bbf7df5f66b18c",
+      "source": "FlagEval/HMMT_2025"
+    },
+    "train_openthoughts_30k.jsonl": {
+      "revision": "1f33e9dc2e8a1c639ca74f8024ad4a9f1f5eae62",
+      "rows": 29434,
+      "sha256": "8078cb279b75ceaa92ec681bb8469a6d591121557b5102e6831606a9f25fc184",
+      "shuffle_seed": 42,
+      "source": "siyanzhao/Openthoughts_math_30k_opsd"
+    }
+  }
+}

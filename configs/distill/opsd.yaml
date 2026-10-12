@@ -1,0 +1,7 @@
+# OPSD: frozen privileged teacher, student-only updates.
+teacher:
+  objective: frozen
+rollout:
+  max_num_seqs: 32
+student:
+  micro_batch_size: 2

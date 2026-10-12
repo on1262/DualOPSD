@@ -1,0 +1,5 @@
+# DualOPSD: teacher fits the residual target q ∝ p_S * exp(beta * (log p0(.|x,r) - log p0(.|x))).
+# beta comes from the model overlay; override with --set teacher.residual_beta=<b>.
+teacher:
+  objective: residual
+  clip: none
